@@ -63,7 +63,7 @@ constexpr array<T, M * N> concat(const array<array<T, N>, M> &arrArr) {
 
 /// Resolve led representation for characters
 constexpr int length(const char *str) {
-    return *str ? 1 + length(str + 1) : 0;
+    return *str ? 1 + length(str + 1) : 1;
 }
 
 template<size_t N, size_t... I>
