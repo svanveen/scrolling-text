@@ -38,6 +38,11 @@ constexpr array<T, N1 + N2> concatInternal(const array<T, N1> &arr1,
     return {arr1[I1]..., arr2[I2]...};
 }
 
+template<typename T, size_t N>
+constexpr array<T, N> concat(const array<T, N> &arr) {
+    return arr;
+}
+
 template<typename T, size_t N1, size_t N2>
 constexpr array<T, N1 + N2> concat(const array<T, N1> &arr1, const array<T, N2> &arr2) {
     return concatInternal(arr1, arr2, S<N1>{}, S<N2>{});
