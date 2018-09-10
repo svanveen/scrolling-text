@@ -50,16 +50,6 @@ constexpr array<T, N1 + N2 * (1 + sizeof...(Args))> concat(const array<T, N1> &a
     return concat(concat(arr1, arr2), args...);;
 }
 
-template<typename T, size_t M, size_t N, size_t... I>
-constexpr array<T, M * N> concatInternal(const array<array<T, N>, M> &arrArr, Index<I...>) {
-    return concat(arrArr[I]...);
-}
-
-template<typename T, size_t M, size_t N>
-constexpr array<T, M * N> concat(const array<array<T, N>, M> &arrArr) {
-    return concatInternal(arrArr, S<M>{});
-}
-
 
 /// Resolve led representation for characters
 constexpr int length(const char *str) {
@@ -68,7 +58,7 @@ constexpr int length(const char *str) {
 
 template<size_t N, size_t... I>
 constexpr array<byte, 5 * N> ledByteRepresentationInternal(const char *c, Index<I...>) {
-    return concat(array<array<byte, 5>, N>{resolveLedBytes(c[I])...});
+    return concat(resolveLedBytes(c[I])...);
 }
 
 template<const char *str>
