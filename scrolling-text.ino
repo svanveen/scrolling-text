@@ -5,8 +5,8 @@
 
 LedMatrix<12, 10, 11> led;
 
-constexpr char str[] = "ACDC";
-constexpr auto bytes = ledByteRepresentation<4>(str);
+constexpr char inputString[] = "HELLO WORLD!";
+constexpr auto bytes = ledByteRepresentation<inputString>();
 
 void setup() {
     init();

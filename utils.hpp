@@ -62,15 +62,18 @@ constexpr array<T, M * N> concat(const array<array<T, N>, M> &arrArr) {
 
 
 /// Resolve led representation for characters
+constexpr int length(const char *str) {
+    return *str ? 1 + length(str + 1) : 0;
+}
+
 template<size_t N, size_t... I>
 constexpr array<byte, 5 * N> ledByteRepresentationInternal(const char *c, Index<I...>) {
     return concat(array<array<byte, 5>, N>{resolveLedBytes(c[I])...});
 }
 
-
-template<size_t N>
-constexpr array<byte, 5 * N> ledByteRepresentation(const char *c) {
-    return ledByteRepresentationInternal<N>(c, S<N>{});
+template<const char *str>
+constexpr array<byte, 5 * length(str)> ledByteRepresentation() {
+    return ledByteRepresentationInternal<length(str)>(str, S<length(str)>{});
 }
 
 #endif // UTILS_HPP
