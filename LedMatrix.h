@@ -3,10 +3,11 @@
 
 #include "Arduino.h"
 
-template<byte MOSI_PIN, byte CLK_PIN, byte CS_PIN>
+template <byte MOSI_PIN, byte CLK_PIN, byte CS_PIN>
 struct LedMatrix {
 
-    LedMatrix() {
+    LedMatrix()
+    {
         pinMode(MOSI, OUTPUT);
         pinMode(CLK, OUTPUT);
         pinMode(CS, OUTPUT);
@@ -20,29 +21,36 @@ struct LedMatrix {
         shutdown(true);
     }
 
-    void write(byte opcode, byte data) {
+    void write(byte opcode, byte data)
+    {
         digitalWrite(CS, LOW);
         shiftOut(MOSI, CLK, MSBFIRST, opcode);
         shiftOut(MOSI, CLK, MSBFIRST, data);
         digitalWrite(CS, HIGH);
     }
 
-    void setRow(byte row, byte data) {
+    void setRow(byte row, byte data)
+    {
         write(row + 1, data);
     }
 
-    void clearDisplay() {
-        for (byte i = 0; i < 8; ++i) {
+    void clearDisplay()
+    {
+        for (byte i = 0; i < 8; ++i)
+        {
             write(i + 1, 0x00);
         }
     }
 
-    void shutdown(bool doShutdown) {
+    void shutdown(bool doShutdown)
+    {
         write(OP_SHUTDOWN, !doShutdown);
     }
 
-    void setIntensity(byte intensity) {
-        if (intensity >= 0 && intensity < 16) {
+    void setIntensity(byte intensity)
+    {
+        if (intensity >= 0 && intensity < 16)
+        {
             write(OP_INTENSITY, intensity);
         }
     }

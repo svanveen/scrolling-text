@@ -39,7 +39,7 @@ constexpr Array<T, N> concat(const Array<T, N>& arr)
 template <typename T, size_t N1, size_t N2>
 constexpr Array<T, N1 + N2> concat(const Array<T, N1>& arr1, const Array<T, N2>& arr2)
 {
-    return concatImpl(arr1, arr2, MakeIndexSequence < N1 > {}, MakeIndexSequence < N2 > {});
+    return concatImpl(arr1, arr2, MakeIndexSequence<N1>{}, MakeIndexSequence<N2>{});
 }
 
 template <typename T, size_t N1, size_t N2, typename ...Args>
