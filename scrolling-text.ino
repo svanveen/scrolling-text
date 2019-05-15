@@ -1,6 +1,6 @@
 #include <avr/pgmspace.h>
 
-#include "utils.h"
+#include "LedByteRepresentation.h"
 #include "LedMatrix.h"
 
 LedMatrix<12, 10, 11> led;
