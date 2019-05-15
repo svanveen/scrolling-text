@@ -1,7 +1,7 @@
-#ifndef CHAR2BYTES_HPP
-#define CHAR2BYTES_HPP
+#ifndef SCROLLING_TEXT_CHAR2BYTES_H
+#define SCROLLING_TEXT_CHAR2BYTES_H
 
-#include "array.hpp"
+#include "array.h"
 
 // @formatter:off
 constexpr array<byte, 5> resolveLedBytes(const char c) {
@@ -50,4 +50,4 @@ constexpr array<byte, 5> resolveLedBytes(const char c) {
 }
 // @formatter:on
 
-#endif // CHAR2BYTES_HPP
+#endif // SCROLLING_TEXT_CHAR2BYTES_H

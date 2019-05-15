@@ -1,5 +1,5 @@
-#ifndef ARRAY_HPP
-#define ARRAY_HPP
+#ifndef SCROLLING_TEXT_ARRAY_H
+#define SCROLLING_TEXT_ARRAY_H
 
 #include <stdlib.h>
 
@@ -18,4 +18,4 @@ struct array {
     }
 };
 
-#endif // ARRAY_HPP
+#endif // SCROLLING_TEXT_ARRAY_H

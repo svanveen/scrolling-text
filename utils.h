@@ -1,9 +1,9 @@
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#ifndef SCROLLING_TEXT_UTILS_H
+#define SCROLLING_TEXT_UTILS_H
 
 #include <stdlib.h>
-#include "array.hpp"
-#include "char2bytes.hpp"
+#include "array.h"
+#include "char2bytes.h"
 
 typedef unsigned char byte;
 
@@ -71,4 +71,4 @@ constexpr array<byte, 5 * length(str)> ledByteRepresentation() {
     return ledByteRepresentationInternal<length(str)>(str, S<length(str)>{});
 }
 
-#endif // UTILS_HPP
+#endif // SCROLLING_TEXT_UTILS_H

@@ -1,5 +1,5 @@
-#ifndef LEDMATRIX_HPP
-#define LEDMATRIX_HPP
+#ifndef SCROLLING_TEXT_LEDMATRIX_H
+#define SCROLLING_TEXT_LEDMATRIX_H
 
 #include "Arduino.h"
 
@@ -59,4 +59,4 @@ private:
     static constexpr byte OP_DISPLAYTEST = 15;
 };
 
-#endif // LEDMATRIX_HPP
+#endif // SCROLLING_TEXT_LEDMATRIX_H
